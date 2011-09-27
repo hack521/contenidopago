@@ -1,5 +1,5 @@
 <?php
-/* User Fixture generated on: 2011-09-22 22:21:43 : 1316722903 */
+/* User Fixture generated on: 2011-09-26 21:40:50 : 1317066050 */
 class UserFixture extends CakeTestFixture {
 	var $name = 'User';
 
@@ -14,7 +14,6 @@ class UserFixture extends CakeTestFixture {
 		'identificacion' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 45, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'nombres' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 45, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'apellidos' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 45, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
-		'empresa' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 45, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'telefono' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 45, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'celular' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 45, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'direccion' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 45, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
@@ -40,7 +39,6 @@ class UserFixture extends CakeTestFixture {
 			'identificacion' => 'Lorem ipsum dolor sit amet',
 			'nombres' => 'Lorem ipsum dolor sit amet',
 			'apellidos' => 'Lorem ipsum dolor sit amet',
-			'empresa' => 'Lorem ipsum dolor sit amet',
 			'telefono' => 'Lorem ipsum dolor sit amet',
 			'celular' => 'Lorem ipsum dolor sit amet',
 			'direccion' => 'Lorem ipsum dolor sit amet',

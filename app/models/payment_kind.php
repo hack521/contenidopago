@@ -1,5 +1,5 @@
 <?php
 class PaymentKind extends AppModel {
 	var $name = 'PaymentKind';
-	var $displayField = 'id';
+	var $displayField = 'descripcion';
 }

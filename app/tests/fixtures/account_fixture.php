@@ -1,5 +1,5 @@
 <?php
-/* Account Fixture generated on: 2011-09-22 21:52:05 : 1316721125 */
+/* Account Fixture generated on: 2011-09-26 16:14:44 : 1317046484 */
 class AccountFixture extends CakeTestFixture {
 	var $name = 'Account';
 
@@ -9,6 +9,7 @@ class AccountFixture extends CakeTestFixture {
 		'account_kinds_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
 		'status_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
 		'payment_kinds_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
+		'descripcion' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 200, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'numero_cuenta' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 300, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'cuenta_banco_defecto' => array('type' => 'integer', 'null' => true, 'default' => NULL),
 		'cuenta_online_defecto' => array('type' => 'integer', 'null' => true, 'default' => NULL),
@@ -26,12 +27,13 @@ class AccountFixture extends CakeTestFixture {
 			'account_kinds_id' => 1,
 			'status_id' => 1,
 			'payment_kinds_id' => 1,
+			'descripcion' => 'Lorem ipsum dolor sit amet',
 			'numero_cuenta' => 'Lorem ipsum dolor sit amet',
 			'cuenta_banco_defecto' => 1,
 			'cuenta_online_defecto' => 1,
 			'cuenta_transferencia_defecto' => 1,
-			'created' => '2011-09-22 21:52:05',
-			'modified' => '2011-09-22 21:52:05'
+			'created' => '2011-09-26 16:14:44',
+			'modified' => '2011-09-26 16:14:44'
 		),
 	);
 }

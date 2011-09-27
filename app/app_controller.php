@@ -5,9 +5,9 @@ class AppController extends Controller {
 
 	function beforeFilter(){
 		$this->Auth->userModel = 'User';
-		$this->Auth->fields = array('username' => 'email', 'password' => 'password');
+		$this->Auth->fields = array('username' => 'usuario', 'password' => 'password');
 		$this->Auth->loginAction = array('admin' => false, 'controller' => 'users', 'action' => 'login');
-        $this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'index');
+        $this->Auth->loginRedirect = array('controller' => 'Users', 'action' => 'index');
 	}
 	
 }//end class

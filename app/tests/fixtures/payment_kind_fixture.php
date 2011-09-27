@@ -1,5 +1,5 @@
 <?php
-/* PaymentKind Fixture generated on: 2011-09-22 22:05:33 : 1316721933 */
+/* PaymentKind Fixture generated on: 2011-09-23 22:32:53 : 1316809973 */
 class PaymentKindFixture extends CakeTestFixture {
 	var $name = 'PaymentKind';
 

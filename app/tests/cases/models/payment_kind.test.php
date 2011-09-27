@@ -1,5 +1,5 @@
 <?php
-/* PaymentKind Test cases generated on: 2011-09-22 22:05:33 : 1316721933*/
+/* PaymentKind Test cases generated on: 2011-09-23 22:32:54 : 1316809974*/
 App::import('Model', 'PaymentKind');
 
 class PaymentKindTestCase extends CakeTestCase {

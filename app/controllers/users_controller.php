@@ -3,8 +3,34 @@ class UsersController extends AppController {
 
 	var $name = 'Users';
 
+	function register(){
+		if (!empty($this->data)) {
+			$this->User->create();
+			if ($this->User->save($this->data)) {
+				$this->Session->setFlash(__('El usuario ha sido guardado.', true));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('El usuario no puede ser guardado. Por favor, intentelo de nuevo.', true));
+			}
+		}
+		
+		$countries = $this->User->Countries->find('list');
+		$regions = $this->User->Region->find('list');
+		$cities = $this->User->City->find('list');
+		$statuses = $this->User->Status->find('list');
+		
+		$this->set(compact('countries', 'regions', 'cities', 'statuses'));
+	}
+
+	function profile($id = null){
+		if (!$id) {
+			$this->Session->setFlash(__('Invalid user', true));
+			$this->redirect(array('action' => 'index'));
+		}
+		$this->set('user', $this->User->read(null, $id));
+	}
+
 	 function login() {
-	 	
 	 }
  
  	function logout() {
@@ -59,7 +85,7 @@ class UsersController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->User->read(null, $id);
 		}
-		$countries = $this->User->Country->find('list');
+		$countries = $this->User->Countries->find('list');
 		$regions = $this->User->Region->find('list');
 		$cities = $this->User->City->find('list');
 		$statuses = $this->User->Status->find('list');

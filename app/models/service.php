@@ -5,8 +5,8 @@ class Service extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $hasAndBelongsToMany = array(
-		'AccountsHa' => array(
-			'className' => 'AccountsHa',
+		'AccountsHasService' => array(
+			'className' => 'AccountsHasService',
 			'joinTable' => 'accounts_has_services',
 			'foreignKey' => 'service_id',
 			'associationForeignKey' => 'accounts_ha_id',

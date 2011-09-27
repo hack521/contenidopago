@@ -1,33 +1,104 @@
 <?php
 class AccountsHasService extends AppModel {
 	var $name = 'AccountsHasService';
-	var $primaryKey = 'yes';
+	var $validate = array(
+		'accounts_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'services_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'prefixes_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'short_numbers_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'account_identifier_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'currencies_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'status_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
-		'Accounts' => array(
-			'className' => 'Accounts',
+		'Account' => array(
+			'className' => 'Account',
 			'foreignKey' => 'accounts_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
-		'Services' => array(
-			'className' => 'Services',
+		'Service' => array(
+			'className' => 'Service',
 			'foreignKey' => 'services_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
-		'Prefixes' => array(
-			'className' => 'Prefixes',
+		'Prefixe' => array(
+			'className' => 'Prefixe',
 			'foreignKey' => 'prefixes_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
-		'ShortNumbers' => array(
-			'className' => 'ShortNumbers',
+		'ShortNumber' => array(
+			'className' => 'ShortNumber',
 			'foreignKey' => 'short_numbers_id',
 			'conditions' => '',
 			'fields' => '',
@@ -40,8 +111,8 @@ class AccountsHasService extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'Currencies' => array(
-			'className' => 'Currencies',
+		'Currency' => array(
+			'className' => 'Currency',
 			'foreignKey' => 'currencies_id',
 			'conditions' => '',
 			'fields' => '',

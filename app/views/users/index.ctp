@@ -1,5 +1,8 @@
 <div class="users index">
-	<h2><?php __('Users');?></h2>
+<h2><?php __('Bienvenido Javier ') ?></h2>
+</div>
+<!--<div class="users index">
+	<h2><?php __('Bienvenido Javier');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
@@ -69,6 +72,7 @@
 	</tr>
 <?php endforeach; ?>
 	</table>
+
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
@@ -83,17 +87,25 @@
 		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
 </div>
+-->
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Acciones'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New User', true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Countries', true), array('controller' => 'countries', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Mis SMS premium', true), array('controller' => 'AccountsHasServices', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Mis Cuentas', true), array('controller' => 'Accounts', 'action' => 'index')); ?> </li>
+        <li><?php echo $this->Html->link(__('Mi Perfil', true), array('controller' => 'Users', 'action' => 'profile')); ?> </li>
+        <li><?php echo $this->Html->link(__('Mensajeria', true), array('controller' => 'Messages', 'action' => 'index')); ?> </li>
+        <li><?php echo $this->Html->link(__('Estadisticas', true), array('controller' => 'Users', 'action' => 'index')); ?> </li>
+
+		<!--<li><?php echo $this->Html->link(__('New User', true), array('action' => 'add')); ?></li>-->
+		<!--<li><?php echo $this->Html->link(__('List Countries', true), array('controller' => 'countries', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Countries', true), array('controller' => 'countries', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Regions', true), array('controller' => 'regions', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Region', true), array('controller' => 'regions', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Cities', true), array('controller' => 'cities', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New City', true), array('controller' => 'cities', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Statuses', true), array('controller' => 'statuses', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Status', true), array('controller' => 'statuses', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Status', true), array('controller' => 'statuses', 'action' => 'add')); ?> </li>-->
+		<li><?php echo $this->Html->link(__('Salir', true), array('action' => 'logout')); ?></li>
 	</ul>
 </div>
