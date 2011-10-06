@@ -1,7 +1,7 @@
 <?php
 class Invoice extends AppModel {
 	var $name = 'Invoice';
-	var $displayField = 'id';
+	var $displayField = 'codigo_factura';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
@@ -19,8 +19,8 @@ class Invoice extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'Administradores' => array(
-			'className' => 'Administradores',
+		'Admin' => array(
+			'className' => 'Admin',
 			'foreignKey' => 'administradores_id',
 			'conditions' => '',
 			'fields' => '',

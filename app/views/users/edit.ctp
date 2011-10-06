@@ -16,15 +16,12 @@
 		echo $this->Form->input('facebook');
 		echo $this->Form->input('twitter');
 		echo $this->Form->input('password');
-		echo $this->Form->input('countries_id');
-		echo $this->Form->input('region_id');
-		echo $this->Form->input('ciudades_id');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
+<?php echo $this->Form->end(__('Guardar', true));?>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Acciones'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Volver', true), array('action' => 'profile'));?></li>
 	</ul>

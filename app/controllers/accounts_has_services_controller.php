@@ -2,9 +2,13 @@
 class AccountsHasServicesController extends AppController {
 
 	var $name = 'AccountsHasServices';
+	var $uses = array('AccountsHasService', 'Country');
 
 	function index() {
 		$this->AccountsHasService->recursive = 0;
+		$id = $this->Auth->user("id");
+		$conditions = "Account.users_id = ".$id;
+		$this->paginate = array('limit' => 20,'conditions' => $conditions);
 		$this->set('accountsHasServices', $this->paginate());
 	}
 
@@ -18,22 +22,28 @@ class AccountsHasServicesController extends AppController {
 
 	function add() {
 		if (!empty($this->data)) {
+			$this->data["AccountsHasService"]["services_id"] = 1;
+			$this->data["AccountsHasService"]["currencies_id"] = 5;
+			$this->data["AccountsHasService"]["status_id"] = 1;
+			
 			$this->AccountsHasService->create();
 			if ($this->AccountsHasService->save($this->data)) {
-				$this->Session->setFlash(__('The accounts has service has been saved', true));
+				$this->Session->setFlash(__('El SmsPremium ha sido guardado correctamente.', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The accounts has service could not be saved. Please, try again.', true));
 			}
 		}
-		$accounts = $this->AccountsHasService->Account->find('list');
+
+		$id = $this->Auth->user("id");
+		$accounts = $this->AccountsHasService->Account->find('list', array('conditions' => array('Account.users_id' => $id)));
 		$services = $this->AccountsHasService->Service->find('list');
-		$prefixes = $this->AccountsHasService->Prefixe->find('list');
+		$prefixes = $this->AccountsHasService->Prefix->find('list');
 		$shortNumbers = $this->AccountsHasService->ShortNumber->find('list');
-		$accountIdentifiers = $this->AccountsHasService->AccountIdentifier->find('list');
 		$currencies = $this->AccountsHasService->Currency->find('list');
 		$statuses = $this->AccountsHasService->Status->find('list');
-		$this->set(compact('accounts', 'services', 'prefixes', 'shortNumbers', 'accountIdentifiers', 'currencies', 'statuses'));
+		$countries = $this->Country->find('list');
+		$this->set(compact('accounts', 'services', 'prefixes', 'shortNumbers', 'currencies', 'statuses', 'countries'));
 	}
 
 	function edit($id = null) {
@@ -43,10 +53,10 @@ class AccountsHasServicesController extends AppController {
 		}
 		if (!empty($this->data)) {
 			if ($this->AccountsHasService->save($this->data)) {
-				$this->Session->setFlash(__('The accounts has service has been saved', true));
+				$this->Session->setFlash(__('El SmsPremium ha sido configurado.', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The accounts has service could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('El SmsPremium no pudo ser guardado, Intentelo de nuevo.', true));
 			}
 		}
 		if (empty($this->data)) {
@@ -56,7 +66,6 @@ class AccountsHasServicesController extends AppController {
 		$services = $this->AccountsHasService->Service->find('list');
 		$prefixes = $this->AccountsHasService->Prefix->find('list');
 		$shortNumbers = $this->AccountsHasService->ShortNumber->find('list');
-		$accountIdentifiers = $this->AccountsHasService->AccountIdentifier->find('list');
 		$currencies = $this->AccountsHasService->Currency->find('list');
 		$statuses = $this->AccountsHasService->Status->find('list');
 		$this->set(compact('accounts', 'services', 'prefixes', 'shortNumbers', 'accountIdentifiers', 'currencies', 'statuses'));

@@ -63,7 +63,7 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Pais'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['Countries']['descripcion']; ?>
+			<?php echo $user['Country']['descripcion']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Region/Provincia'); ?></dt>
@@ -84,9 +84,9 @@
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Acciones'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Editar Perfil', true), array('controller' => 'Users', 'action' => 'edit')); ?> </li>
+		<li><?php echo $this->Html->link(__('Editar Perfil', true), array('controller' => 'Users', 'action' => 'edit/'.$this->Session->read('Auth.User.id'))); ?> </li>
 		<li><?php echo $this->Html->link(__('Volver', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

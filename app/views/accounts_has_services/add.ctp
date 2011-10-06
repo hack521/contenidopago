@@ -1,19 +1,62 @@
+<script type="text/javascript" src="../js/jquery-1.6.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	clean_combos();
+	$("#AccountsHasServiceCountriesId").change(function(){
+		id = $("#AccountsHasServiceCountriesId").val();
+		fill_combos(id);
+	});
+});
+
+function clean_combos(){
+	$("#AccountsHasServicePrefixesId").html("");
+	$("#AccountsHasServiceShortNumbersId").html("");
+	$("#AccountsHasServicePrefixesId").html("<option value='0'>--Seleccionar--</option>");
+	$("#AccountsHasServiceShortNumbersId").html("<option value='0'>--Seleccionar--</option>");
+}
+
+function fill_combos(id){
+	$("#AccountsHasServicePrefixesId").html("Cargando...");
+	$.ajax({
+                    type: 'POST',
+                    url: '../Prefixes/list_combo/' + id,
+                    success: function(data) {
+                    	$("#AccountsHasServicePrefixesId").html("");
+                        $("#AccountsHasServicePrefixesId").html(data);
+                    },
+                    failure: function() {
+                        //display_info(2, 'La Historia no pudo ser eliminada.');
+                    }
+                });
+   $("#UserRegionId").html("Cargando...");
+	$.ajax({
+                    type: 'POST',
+                    url: '../ShortNumbers/list_combo/' + id,
+                    success: function(data) {
+                    	$("#AccountsHasServiceShortNumbersId").html("");
+                        $("#AccountsHasServiceShortNumbersId").html(data);
+                    },
+                    failure: function() {
+                        //display_info(2, 'La Historia no pudo ser eliminada.');
+                    }
+                });
+}
+
+</script>
 <div class="accountsHasServices form">
 <?php echo $this->Form->create('AccountsHasService');?>
 	<fieldset>
 		<legend><?php __('Nuevo SMS premium'); ?></legend>
 	<?php
 		echo $this->Form->input('accounts_id');
+		echo $this->Form->input('countries_id', array('options' => $countries, 'empty' => '-- Seleccionar --'), null, array('id' => 'countries_id', 'label' => 'Country'));
 		echo $this->Form->input('prefixes_id');
 		echo $this->Form->input('short_numbers_id');
-		echo $this->Form->input('account_identifier_id');
 		echo $this->Form->input('palabra');
-		echo $this->Form->input('fecha');
-		echo $this->Form->input('currencies_id');
-		echo $this->Form->input('status_id');
+		echo $this->Form->input('url_servicio');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
+<?php echo $this->Form->end(__('Guardar', true));?>
 </div>
 <div class="actions">
 	<h3><?php __('Acciones'); ?></h3>

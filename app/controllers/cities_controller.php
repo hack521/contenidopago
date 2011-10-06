@@ -3,11 +3,19 @@ class CitiesController extends AppController {
 
 	var $name = 'Cities';
 
+	function beforeFilter() {
+		parent::beforeFilter();
+        $this->Auth->allow('list_combo');
+    }
+
 	function list_combo($id = null){
+		$this->layout = "ajax";
 		if (!$id) {
 			//$this->redirect(array('action' => 'index'));
 		}
 		$this->City->read(null, $id);
+		$conditions = "City.region_id = ".$id;
+		$this->paginate = array('limit' => 20,'conditions' => $conditions);
 		$this->set('cities', $this->paginate());
 	}
 

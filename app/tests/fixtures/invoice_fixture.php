@@ -1,5 +1,5 @@
 <?php
-/* Invoice Fixture generated on: 2011-09-22 21:59:06 : 1316721546 */
+/* Invoice Fixture generated on: 2002-06-29 11:51:59 : 1025344319 */
 class InvoiceFixture extends CakeTestFixture {
 	var $name = 'Invoice';
 
@@ -27,7 +27,7 @@ class InvoiceFixture extends CakeTestFixture {
 			'payment_kinds_id' => 1,
 			'accounts_id' => 1,
 			'codigo_factura' => 'Lorem ipsum dolor sit amet',
-			'fecha' => '2011-09-22 21:59:06',
+			'fecha' => '2002-06-29 11:51:59',
 			'created' => 1,
 			'modified' => 1
 		),

@@ -1,8 +1,8 @@
 <div class="users index">
-<h2><?php __('Bienvenido Javier ') ?></h2>
+<h2><?php __('Bienvenido '.$this->Session->read('Auth.User.nombres')) ?></h2>
 </div>
 <!--<div class="users index">
-	<h2><?php __('Bienvenido Javier');?></h2>
+	<h2><?php __('Bienvenido ');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
@@ -93,7 +93,8 @@
 	<ul>
 		<li><?php echo $this->Html->link(__('Mis SMS premium', true), array('controller' => 'AccountsHasServices', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Mis Cuentas', true), array('controller' => 'Accounts', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('Mi Perfil', true), array('controller' => 'Users', 'action' => 'profile')); ?> </li>
+		<li><?php echo $this->Html->link(__('Mis Facturas', true), array('controller' => 'Invoices', 'action' => 'index')); ?> </li>
+        <li><?php echo $this->Html->link(__('Mi Perfil', true), array('controller' => 'Users', 'action' => 'profile/'.$this->Session->read('Auth.User.id'))); ?> </li>
         <li><?php echo $this->Html->link(__('Mensajeria', true), array('controller' => 'Messages', 'action' => 'index')); ?> </li>
         <li><?php echo $this->Html->link(__('Estadisticas', true), array('controller' => 'Users', 'action' => 'index')); ?> </li>
 

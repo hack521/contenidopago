@@ -117,7 +117,7 @@ class AuthComponent extends Object {
  * @access public
  * @link http://book.cakephp.org/view/1267/fields
  */
-	var $fields = array('username' => 'username', 'password' => 'password');
+	var $fields = array('username' => 'usuario', 'password' => 'password');
 
 /**
  * The session key name where the record of the current user is stored.  If

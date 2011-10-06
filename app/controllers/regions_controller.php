@@ -3,17 +3,25 @@ class RegionsController extends AppController {
 
 	var $name = 'Regions';
 
+	function beforeFilter() {
+		parent::beforeFilter();
+        $this->Auth->allow('list_combo');
+    }
+
 	function list_combo($id = null){
+		$this->layout = "ajax";
 		if (!$id) {
 			//$this->redirect(array('action' => 'index'));
 		}
-		$this->Region->read(null, $id);
+		$this->Region->find('list', array('conditions' => array('Region.countries_id' => $id)));
+		$conditions = "Region.countries_id = ".$id;
+		$this->paginate = array('limit' => 20,'conditions' => $conditions);
 		$this->set('region', $this->paginate());
 	}
 
 	function index() {
 		$this->Region->recursive = 0;
-		$this->set('regions', $this->paginate());
+		$this->set('regions');
 	}
 
 	function view($id = null) {

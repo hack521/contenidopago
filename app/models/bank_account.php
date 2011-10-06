@@ -1,12 +1,12 @@
 <?php
 class BankAccount extends AppModel {
 	var $name = 'BankAccount';
-	var $displayField = 'id';
+	var $displayField = 'numero_cuenta';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
-		'Banks' => array(
-			'className' => 'Banks',
+		'Bank' => array(
+			'className' => 'Bank',
 			'foreignKey' => 'banks_id',
 			'conditions' => '',
 			'fields' => '',
@@ -19,8 +19,8 @@ class BankAccount extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'Users' => array(
-			'className' => 'Users',
+		'User' => array(
+			'className' => 'User',
 			'foreignKey' => 'users_id',
 			'conditions' => '',
 			'fields' => '',

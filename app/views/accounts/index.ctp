@@ -6,6 +6,7 @@
 			<th><?php echo $this->Paginator->sort('descripcion');?></th>
 			<th><?php echo $this->Paginator->sort('account_kinds_id');?></th>
 			<th><?php echo $this->Paginator->sort('payment_kinds_id');?></th>
+			<th><?php echo $this->Paginator->sort('Saldo');?></th>
 			<th><?php echo $this->Paginator->sort('status_id');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -23,6 +24,7 @@
 		<td><?php echo $account['Account']['descripcion']; ?>&nbsp;</td>
 		<td><?php echo $account['AccountKind']['descripcion']; ?></td>
 		<td><?php echo $account['PaymentKind']['descripcion']; ?></td>
+		<td><?php echo $account['Account']["saldo"]; ?></td>
 		<td><?php echo $account['Status']['descripcion']; ?></td>
 		<td><?php echo $account['Account']['created']; ?>&nbsp;</td>
 		<td class="actions">
@@ -51,6 +53,9 @@
 	<h3><?php __('Acciones'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Nueva Cuenta', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Cuentas Bancarias', true), array('controller' => 'BankAccounts', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Cuentas Online', true), array('controller' => 'OnlineAccounts', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Casas de Cambio', true), array('controller' => 'TransferAccounts', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Volver', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

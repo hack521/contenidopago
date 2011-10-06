@@ -1,11 +1,8 @@
-<select>
 <option value='0'>Seleccionar</option>
 <?php
-foreach ($region as $province):
+foreach($region as $province){
+	$id = $province['Region']['id'];
+	$descripcion = $province['Region']['descripcion'];
 	?>
-	<option value='<?php echo $province['Region']['id']; ?>'>
-	<?php echo $province['Region']['descripcion']; ?>
-	</option>
-<?php endforeach; ?>
-?>
-</select>
+	<option value='<?php echo $id; ?>'><? echo $descripcion; ?></option>
+<?php } ?>

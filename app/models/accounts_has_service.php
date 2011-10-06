@@ -42,16 +42,6 @@ class AccountsHasService extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'account_identifier_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'currencies_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
@@ -73,6 +63,8 @@ class AccountsHasService extends AppModel {
 			),
 		),
 	);
+
+	 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
@@ -90,8 +82,8 @@ class AccountsHasService extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'Prefixe' => array(
-			'className' => 'Prefixe',
+		'Prefix' => array(
+			'className' => 'Prefix',
 			'foreignKey' => 'prefixes_id',
 			'conditions' => '',
 			'fields' => '',
@@ -100,13 +92,6 @@ class AccountsHasService extends AppModel {
 		'ShortNumber' => array(
 			'className' => 'ShortNumber',
 			'foreignKey' => 'short_numbers_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'AccountIdentifier' => array(
-			'className' => 'AccountIdentifier',
-			'foreignKey' => 'account_identifier_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

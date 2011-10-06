@@ -1,4 +1,3 @@
-<select>
 <option value='0'>Seleccionar</option>
 <?php
 foreach ($cities as $citi):
@@ -8,4 +7,3 @@ foreach ($cities as $citi):
 	</option>
 <?php endforeach; ?>
 ?>
-</select>

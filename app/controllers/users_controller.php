@@ -2,25 +2,32 @@
 class UsersController extends AppController {
 
 	var $name = 'Users';
+	var $helpers = array('Html', 'Form', 'Ajax');
+	var $components = array('Auth');
 
-	function register(){
-		if (!empty($this->data)) {
+	function beforeFilter() {
+		parent::beforeFilter();
+        $this->Auth->allow('register');
+    }
+
+    function register() {
+        if (!empty($this->data)) {
+        	$this->data['User']['status_id'] = 1;
 			$this->User->create();
 			if ($this->User->save($this->data)) {
-				$this->Session->setFlash(__('El usuario ha sido guardado.', true));
+				$this->Session->setFlash(__('Su cuenta ha sido creada.', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('El usuario no puede ser guardado. Por favor, intentelo de nuevo.', true));
+				$this->Session->setFlash(__('No se ha `podido registrar, intentelo de nuevo.', true));
 			}
 		}
-		
-		$countries = $this->User->Countries->find('list');
+
+        $countries = $this->User->Country->find('list');
 		$regions = $this->User->Region->find('list');
 		$cities = $this->User->City->find('list');
-		$statuses = $this->User->Status->find('list');
 		
-		$this->set(compact('countries', 'regions', 'cities', 'statuses'));
-	}
+		$this->set(compact('countries', 'regions', 'cities'));
+    }
 
 	function profile($id = null){
 		if (!$id) {
@@ -85,7 +92,7 @@ class UsersController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->User->read(null, $id);
 		}
-		$countries = $this->User->Countries->find('list');
+		$countries = $this->User->Country->find('list');
 		$regions = $this->User->Region->find('list');
 		$cities = $this->User->City->find('list');
 		$statuses = $this->User->Status->find('list');

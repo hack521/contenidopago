@@ -5,8 +5,10 @@
 			<th><?php echo $this->Paginator->sort('Cuenta');?></th>
 			<th><?php echo $this->Paginator->sort('Prefijo');?></th>
 			<th><?php echo $this->Paginator->sort('Numero Corto');?></th>
-			<th><?php echo $this->Paginator->sort('Identificador');?></th>
 			<th><?php echo $this->Paginator->sort('Palabra');?></th>
+			<th><?php echo $this->Paginator->sort('Saldo Actual');?></th>
+			<th><?php echo $this->Paginator->sort('Saldo Anterior');?></th>
+			<th><?php echo $this->Paginator->sort('Saldo Promedio');?></th>
 			<th><?php echo $this->Paginator->sort('Fecha');?></th>
 			<th><?php echo $this->Paginator->sort('Estado');?></th>
 			
@@ -21,28 +23,25 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
+		<td><?php echo $accountsHasService['Account']['numero_cuenta']; ?></td>
 		<td>
-			<?php echo $this->Html->link($accountsHasService['Accounts']['id'], array('controller' => 'accounts', 'action' => 'view', $accountsHasService['Accounts']['id'])); ?>
+			<?php echo $accountsHasService['Prefix']['numero']; ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($accountsHasService['Prefixes']['id'], array('controller' => 'prefixes', 'action' => 'view', $accountsHasService['Prefixes']['id'])); ?>
+			<?php echo $accountsHasService['ShortNumber']['numero']; ?>
 		</td>
-		<td>
-			<?php echo $this->Html->link($accountsHasService['ShortNumbers']['id'], array('controller' => 'short_numbers', 'action' => 'view', $accountsHasService['ShortNumbers']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($accountsHasService['AccountIdentifier']['id'], array('controller' => 'account_identifiers', 'action' => 'view', $accountsHasService['AccountIdentifier']['id'])); ?>
-		</td>
-		
 		<td><?php echo $accountsHasService['AccountsHasService']['palabra']; ?>&nbsp;</td>
-		<td><?php echo $accountsHasService['AccountsHasService']['fecha']; ?>&nbsp;</td>
+		<td><?php echo $accountsHasService['AccountsHasService']['saldo_actual']; ?></td>
+		<td><?php echo $accountsHasService['AccountsHasService']['saldo_anterior']; ?></td>
+		<td><?php echo $accountsHasService['AccountsHasService']['saldo_promedio']; ?></td>
+		<td><?php echo $accountsHasService['AccountsHasService']['created']; ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($accountsHasService['Status']['id'], array('controller' => 'statuses', 'action' => 'view', $accountsHasService['Status']['id'])); ?>
+			<?php echo $accountsHasService['Status']['descripcion']; ?>
 		</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $accountsHasService['AccountsHasService']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $accountsHasService['AccountsHasService']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $accountsHasService['AccountsHasService']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $accountsHasService['AccountsHasService']['id'])); ?>
+			<?php echo $this->Html->link(__('Ver', true), array('action' => 'view', $accountsHasService['AccountsHasService']['id'])); ?>
+			<?php echo $this->Html->link(__('Configurar', true), array('action' => 'edit', $accountsHasService['AccountsHasService']['id'])); ?>
+			<?php echo $this->Html->link(__('Suspender', true), array('action' => 'delete', $accountsHasService['AccountsHasService']['id']), null, sprintf(__('¿Esta seguro que desea suspender este servicio?', true), $accountsHasService['AccountsHasService']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
